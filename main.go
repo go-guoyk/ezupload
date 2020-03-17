@@ -33,6 +33,8 @@ func main() {
 			_, _ = rw.Write([]byte(err.Error()))
 			return
 		}
+		log.Printf("RelPath: %s", relPath)
+		log.Printf("DirPath: %s", dirPath)
 		var file *os.File
 		if file, err = os.OpenFile(relPath, os.O_RDWR|os.O_CREATE, 0777); err != nil {
 			rw.WriteHeader(http.StatusServiceUnavailable)
