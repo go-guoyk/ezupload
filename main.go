@@ -25,7 +25,7 @@ func main() {
 			_, _ = rw.Write([]byte("method not allowed"))
 			return
 		}
-		relPath := filepath.Join(req.URL.Path[1:])
+		relPath := filepath.Join(optDir, req.URL.Path[1:])
 		dirPath := filepath.Dir(relPath)
 		var err error
 		if err = os.MkdirAll(dirPath, 0777); err != nil {
